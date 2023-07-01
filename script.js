@@ -118,7 +118,7 @@ class App {
 
     //   redner markers on map
     this.#workouts.forEach(workout => {
-        this._renderWorkoutMarker(workout);
+      this._renderWorkoutMarker(workout);
     });
   }
 
@@ -297,6 +297,15 @@ class App {
       this._renderWorkout(workout);
     });
   }
+
+  resetStorage() {
+    localStorage.removeItem('workouts');
+    location.reload();
+  }
 }
 
 const app = new App();
+
+document.querySelector('.cross-icon').addEventListener('click', function () {
+  app.resetStorage();
+});
